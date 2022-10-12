@@ -1,0 +1,13 @@
+* {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.red {color: red;}
