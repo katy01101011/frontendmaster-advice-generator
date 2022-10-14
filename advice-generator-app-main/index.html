@@ -13,24 +13,30 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
-
+  <!-- STYLE CSS -->
   <link rel="stylesheet" href="style.css">
-
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- AXIOS -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
+<body class="flex-center">
 
-  <h2 id="advice-id-container" class="hidden">
-    Advice #<span id="advice-id"></span>
-  </h2>
-
-  <h1 id="advice-content-container" class="hidden">
-    "<span id="advice-content"></span>"
-  </h1>
-
-  <button id="dice" @click="clicked()">
-    Dado
-  </button>
+  <div id="advice" class="flex-center">
+    <small id="advice-id-container">
+      Advice #<span id="advice-id"></span>
+    </small>
+  
+    <p id="advice-content-container">
+      "<span id="advice-content"></span>"
+    </p>
+  
+    <button id="dice" @click="clicked()">
+      Dado
+    </button>
+  </div>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
