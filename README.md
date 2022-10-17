@@ -50,32 +50,60 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
-- CSS Grid
+- Pure JavaScript work
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Per questo progetto ho scelto di usare i linguaggi puri: html5, CSS e JavaScript. La sfida più grande è stata quella di far apparire il messaggio di inizio del 'gioco', per poi farlo sparire e far spazio ai consigli generati a partire dalla chiamata api.
+Per questo ho deciso di usare le classi ".show" e ".hidden" nella funzione onclick sul dado
 
-To see how you can add code snippets, see below:
+Di seguito ci sono alcuni passaggi del mio codice: 
+- Il CSS che definisce il pulsante del dado
+- La funzione che fa comparire i consigli al click
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+#dice {
+    position: absolute;
+    width: var(--dice-dimension);
+    height: var(--dice-dimension);
+    border-radius: 50%;
+    border: none;
+    background-color: var(--id-color);
+    bottom: 0;
+    transform: translateY(50%);
+    transition: .7s;
+}
+
+#dice:hover {
+    box-shadow: 0px 0px 30px 0px var(--id-color);
+    transition: .7s;
 }
 ```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function clicked() {
+    axios.get('https://api.adviceslip.com/advice')
+    .then(function (response) {
+        advice = response.data.slip;
+        adviceId.innerHTML = advice.id;
+        adviceContent.innerHTML = advice.advice;
+    })
+
+    adviceIdContainer.classList.add("show");
+    adviceContentContainer.classList.add("show");
+    adviceContentContainer.classList.add("pb");
+    firstMessage.classList.remove("show");
+    firstMessage.classList.add("hidden");
+    firstMessage.classList.remove("pb");
+    dividerDesktop.classList.remove("hidden");
+    dividerDesktop.classList.add("show")
+    dividerMobile.classList.remove("hidden");
+    dividerMobile.classList.add("show")
 }
 ```
 
